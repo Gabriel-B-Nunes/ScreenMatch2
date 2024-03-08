@@ -1,3 +1,5 @@
+import br.com.alura.screenmatch.modelos.Filme;
+
 public class Principal {
     public static void main(String[] args){
         Filme filme1 = new Filme();
@@ -5,6 +7,7 @@ public class Principal {
         filme1.setNome("O Poderoso Chefão");
         filme1.setAnoDeLancamento(1970);
         filme1.setDuracaoEmMinutos(180);
+        filme1.setIncluidoNoPlano(true);
 
         filme1.exibeFichaTécnica();
         filme1.avalia(8);
