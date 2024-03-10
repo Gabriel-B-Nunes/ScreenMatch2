@@ -1,10 +1,10 @@
+import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
 public class Principal {
     public static void main(String[] args){
         Filme filme1 = new Filme();
-
         filme1.setNome("O Poderoso Chefão");
         filme1.setAnoDeLancamento(1970);
         filme1.setDuracaoEmMinutos(180);
@@ -25,5 +25,17 @@ public class Principal {
         lost.setEpisodiosPorTemporada(10);
         lost.setMinutosPorEpisodio(50);
         System.out.println("Duracao para maratonar lost: " + lost.getDuracaoEmMinutos());
+
+        Filme filme2 = new Filme();
+        filme2.setNome("Avatar");
+        filme2.setAnoDeLancamento(2023);
+        filme2.setDuracaoEmMinutos(200);
+        filme2.setIncluidoNoPlano(true);
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(filme1);
+        calculadora.inclui(filme2);
+        calculadora.inclui(lost);
+        System.out.println(calculadora.getTempoTotal());
     }
 }
