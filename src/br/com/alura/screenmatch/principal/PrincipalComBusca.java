@@ -6,8 +6,6 @@ import br.com.alura.screenmatch.modelos.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
@@ -63,5 +61,18 @@ public class PrincipalComBusca {
         escrita.write(gson.toJson(titulos));
         escrita.close();
         System.out.println("O programa finalizou corretamente");
+
+        System.out.println("Informe o filme que você quer pesquisar");
+        busca = leitura.nextLine();
+        busca.replace(" ", "+");
+        String endereco = "http://www.omdbapi.com/?t=" + busca + "&apikey=1645e226";
+        HttpClient client = HttpClient.newBuilder().build();
+        HttpRequest request = HttpRequest.newBuilder(URI.create(endereco)).build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        String json = response.body();
+        TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
+        Titulo meuTitulo = new Titulo(meuTituloOmdb);
+        System.out.println(meuTitulo);
     }
 }

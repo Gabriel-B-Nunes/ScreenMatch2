@@ -15,6 +15,7 @@ public class Titulo implements Comparable<Titulo>{
         this.anoDeLancamento = anoDeLancamento;
     }
 
+<<<<<<< HEAD
     public Titulo(TituloOmdb tituloOmdb) {
         this.nome = tituloOmdb.Title();
         if (tituloOmdb.Year().length() > 4) {
@@ -23,6 +24,12 @@ public class Titulo implements Comparable<Titulo>{
         }
         this.anoDeLancamento = Integer.parseInt(tituloOmdb.Year());
         this.duracaoEmMinutos = Integer.parseInt(tituloOmdb.Runtime().substring(0, 2));
+=======
+    public Titulo(TituloOmdb meuTituloOmdb) {
+        this.nome = meuTituloOmdb.title();
+        this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 3));
+>>>>>>> bb20527bf770da1c333b0fd654a787c863dc3c35
     }
 
     public String getNome() {
@@ -84,6 +91,10 @@ public class Titulo implements Comparable<Titulo>{
 
     @Override
     public String toString() {
+<<<<<<< HEAD
         return "(nome = " + nome + " | anoDeLancamento = " + anoDeLancamento + " | duracao = " + duracaoEmMinutos + ")";
+=======
+        return "nome: " + this.nome + " ano: " + this.anoDeLancamento + " duração: " + this.duracaoEmMinutos;
+>>>>>>> bb20527bf770da1c333b0fd654a787c863dc3c35
     }
 }
